@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7726498622015252366, guid: d419e9fbb261c384e986f98d02223df4, type: 3}
+      propertyPath: velocity.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726498622015252367, guid: d419e9fbb261c384e986f98d02223df4, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9034491023410302631, guid: d419e9fbb261c384e986f98d02223df4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5453333
@@ -255,9 +263,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8815154350042340490, guid: de6603a3f47942f448c336e905fa99dc, type: 3}
+      propertyPath: m_UpdateMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815154350042340490, guid: de6603a3f47942f448c336e905fa99dc, type: 3}
+      propertyPath: m_BlendUpdateMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8815154350042340491, guid: de6603a3f47942f448c336e905fa99dc, type: 3}
       propertyPath: orthographic size
-      value: 2.0153036
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6603a3f47942f448c336e905fa99dc, type: 3}
