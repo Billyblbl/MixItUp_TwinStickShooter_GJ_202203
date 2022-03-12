@@ -632,6 +632,18 @@ MonoBehaviour:
           m_StringArgument: Death
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2917942416537505260}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9212069686554549822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +679,7 @@ MonoBehaviour:
   rb: {fileID: 6931253683390195479}
   target: {fileID: 0}
   source: {fileID: 9212069686554549822}
-  speed: 6
+  speed: 5
   aimSpring: 10
   fireRate: 200
   animator: {fileID: 5885611419602373188}
@@ -675,6 +687,7 @@ MonoBehaviour:
   targetDistance: 2
   maintainDistance: 0
   aimCone: 20
+  maxRange: 4
 --- !u!114 &8890687048925485271
 MonoBehaviour:
   m_ObjectHideFlags: 0
