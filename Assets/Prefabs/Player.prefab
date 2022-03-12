@@ -357,6 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7726498622015252367}
   cursor: {fileID: 9221822481717783885}
+  source: {fileID: 7726498622015252366}
   speed: 5
   aimSpring: 10
 --- !u!114 &7726498622015252366
@@ -371,14 +372,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f156e5a70739847ad915fdf1df18a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7726498622015252367}
-  velocity: {x: 0, y: 1}
+  projectile: {fileID: 5870568446582507774, guid: 9823992fa9cb55948bf9416ea23411ec, type: 3}
+  velocity: {x: 0, y: 5}
   recoil: {x: 0, y: 0}
   inertia: {fileID: 7726498622015252367}
   OnFire:
     m_PersistentCalls:
       m_Calls: []
-  offset: {x: 0, y: 3}
+  offset: {x: 0, y: 0.2}
 --- !u!50 &7726498622015252367
 Rigidbody2D:
   serializedVersion: 4

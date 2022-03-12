@@ -9,6 +9,7 @@ public class TSSControler : MonoBehaviour {
 
 	public Rigidbody2D?	rb;
 	public Transform?	cursor;
+	public ProjectileSource2D?	source;
 	public float speed = 10f;
 	public float aimSpring = 10f;
 
@@ -21,5 +22,9 @@ public class TSSControler : MonoBehaviour {
 		var aim = cursor!.position - transform.position;
 		var targetRotation = Quaternion.Euler(Vector3.forward * Vector2.SignedAngle(Vector2.up, aim));
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * aimSpring);
+
+		if (Input.GetMouseButtonDown(0)) {
+			source?.FireProjectile();
+		}
 	}
 }

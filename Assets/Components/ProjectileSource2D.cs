@@ -18,6 +18,7 @@ public class ProjectileSource2D : MonoBehaviour {
 
 	public void FireProjectile() {
 		launch(spawn());
+		Debug.Log("shoot");
 		OnFire?.Invoke();
 	}
 
