@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8741045367924202345}
   - component: {fileID: 6580607904022620545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerBlue_Frame_01_png_processed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ RectTransform:
   m_GameObject: {fileID: 6847179615490168062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 409210388149620056}
   - {fileID: 3513544044669099735}
@@ -417,7 +417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -15, y: 15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &7726498621064392910
@@ -531,7 +531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7726498621548345086}
   - component: {fileID: 7726498621548345087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship_LVL_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 7726498622015252366}
   - component: {fileID: 7726498622015252367}
   - component: {fileID: 7726498622015252364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,8 @@ MonoBehaviour:
   aimSpring: 10
   dashSpeed: 10
   dashTime: 0.1
-  dashCooldown: 5
+  dashCooldown: 3
+  fireRate: 500
 --- !u!114 &7726498622015252366
 MonoBehaviour:
   m_ObjectHideFlags: 0

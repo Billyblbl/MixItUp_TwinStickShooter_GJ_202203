@@ -17,19 +17,23 @@ public class TSSControler : MonoBehaviour {
 	public float dashSpeed = 2f;
 	public float dashTime = .1f;
 	public float dashCooldown = 5f;
+	[Tooltip("RPM")] public float fireRate = 100f;
 
 	float dashStart = 0f;
 	Vector2 inputs;
 
+	float lastShot = 0f;
+
 	private void Update() {
-		inputs.x = Input.GetAxisRaw("Horizontal");
-		inputs.y = Input.GetAxisRaw("Vertical");
+		inputs.x = Input.GetAxis("Horizontal");
+		inputs.y = Input.GetAxis("Vertical");
 
 		var aim = cursor!.position - transform.position;
 		var targetRotation = Quaternion.Euler(Vector3.forward * Vector2.SignedAngle(Vector2.up, aim));
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * aimSpring);
 
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButton(0) && Time.time > lastShot + 60/fireRate) {
+			lastShot = Time.time;
 			source?.FireProjectile();
 		}
 
@@ -43,6 +47,5 @@ public class TSSControler : MonoBehaviour {
 	private void FixedUpdate() {
 		var dashFactor = (dashStart + dashTime > Time.time) ? dashSpeed : 1f;
 		rb!.velocity = Vector2.ClampMagnitude(inputs, 1f) * speed * dashFactor;
-		Debug.LogFormat("Velocity = {0}", rb!.velocity);
 	}
 }
