@@ -681,7 +681,7 @@ MonoBehaviour:
   source: {fileID: 9212069686554549822}
   speed: 5
   aimSpring: 10
-  fireRate: 200
+  fireRate: 100
   animator: {fileID: 5885611419602373188}
   enemyType: 0
   targetDistance: 2

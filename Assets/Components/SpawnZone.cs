@@ -13,10 +13,10 @@ public class SpawnZone : MonoBehaviour {
 
 	private void Start() {
 		player = FindObjectOfType<TSSControler>().transform;
-		Spawn(100);
+		// Spawn(100);
 	}
 
-	public void SpawnOne() {
+	public GameObject? SpawnOne() {
 		Vector2 direction;
 		RaycastHit2D hit;
 		Vector2 origin = player?.position ?? Vector2.zero;
@@ -32,10 +32,15 @@ public class SpawnZone : MonoBehaviour {
 		}
 
 		var distance = (minDistanceToPlayer < hit.distance) ? Random.Range(minDistanceToPlayer, hit.distance) : hit.distance;
-		Instantiate(blueprint, origin + direction * distance, Quaternion.identity);
+		return Instantiate(blueprint, origin + direction * distance, Quaternion.identity);
 	}
 
-	public void Spawn(int number) {
-		for (int i = 0; i < number; i++) SpawnOne();
+	public List<GameObject> Spawn(int number) {
+		var list = new List<GameObject>();
+		for (int i = 0; i < number; i++){
+			var spawned = SpawnOne();
+			if (spawned != null) list.Add(spawned);
+		}
+		return list;
 	}
 }
