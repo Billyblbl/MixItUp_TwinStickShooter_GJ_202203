@@ -20,11 +20,13 @@ public class DamageReceptor : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		var damages = other.GetComponents<Damage>();
+		// Debug.LogFormat("Trigger Damage from {0}", other.gameObject.name);
 		foreach (var damage in damages) Hit(damage);
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
 		var damages = other.collider.GetComponents<Damage>();
+		// Debug.LogFormat("Collision Damage from {0}", other.gameObject.name);
 		foreach (var damage in damages) Hit(damage);
 	}
 
