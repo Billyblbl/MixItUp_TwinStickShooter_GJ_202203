@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 #nullable enable
@@ -10,10 +11,12 @@ public class TSSControler : MonoBehaviour {
 	public Rigidbody2D?	rb;
 	public Transform?	cursor;
 	public ProjectileSource2D?	source;
+	public Image?	dashIncicatorOverlay;
 	public float speed = 10f;
 	public float aimSpring = 10f;
 	public float dashSpeed = 2f;
 	public float dashTime = .1f;
+	public float dashCooldown = 5f;
 
 	float dashStart = 0f;
 	Vector2 inputs;
@@ -30,9 +33,11 @@ public class TSSControler : MonoBehaviour {
 			source?.FireProjectile();
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift)) {
+		if (Input.GetKeyDown(KeyCode.LeftShift) && dashStart + dashCooldown < Time.time) {
 			dashStart = Time.time;
 		}
+
+		dashIncicatorOverlay!.fillAmount = Mathf.InverseLerp(dashStart + dashCooldown, dashStart, Time.time);
 	}
 
 	private void FixedUpdate() {
