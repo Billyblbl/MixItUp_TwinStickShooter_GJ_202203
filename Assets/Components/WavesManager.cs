@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -60,7 +61,11 @@ public class WavesManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (spawnZone != null && enemyCount == 0) paused = true;
+		if (spawnZone != null && enemyCount == 0) {
+			bool pausing = !paused;
+			paused = true;
+			if (pausing) OnNewWave?.Invoke(currentWave);
+		}
 
 		UpdateTimeScales(paused);
 		UpdateFade(paused);
@@ -82,11 +87,14 @@ public class WavesManager : MonoBehaviour {
 	void LaunchWave() {
 			currentWave++;
 			var enemies = spawnZone!.Spawn(SpawnCount(currentWave));
-			foreach (var enemy in enemies)
+			foreach (var enemy in enemies) {
 				enemy.GetComponentInChildren<Health>()?.OnDepleted.AddListener(() => {
 					enemyCount--;
 					Debug.LogFormat("Killing {0}", enemy.gameObject.name);
 				});
+				enemy.GetComponentInChildren<Health>()!.rules = GetComponent<RulesManager>();
+				enemy.GetComponentInChildren<ShipController>()!.rules = GetComponent<RulesManager>();
+			}
 			enemyCount = enemies.Count;
 			Debug.LogFormat("Enemy count = {0}", enemyCount);
 	}
@@ -125,5 +133,7 @@ public class WavesManager : MonoBehaviour {
 		Debug.Log("Quit");
 		Application.Quit();
 	}
+
+	public UnityEvent<int> OnNewWave = new UnityEvent<int>();
 
 }

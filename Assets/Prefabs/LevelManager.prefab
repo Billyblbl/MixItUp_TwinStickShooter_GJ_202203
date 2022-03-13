@@ -246,9 +246,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6346222704468709621}
   - component: {fileID: 7237406378353403559}
-  - component: {fileID: 4522145026396518948}
+  - component: {fileID: 8308745017819544980}
   m_Layer: 0
-  m_Name: TODO
+  m_Name: Rules
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,18 +261,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499618267819610794}
-  m_LocalRotation: {x: -0, y: -0, z: -0.15365855, w: 0.988124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4826776023596647667}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.678}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: -42}
-  m_SizeDelta: {x: 330, y: 149.9646}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 540}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7237406378353403559
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499618267819610794}
   m_CullTransparentMesh: 1
---- !u!114 &4522145026396518948
+--- !u!114 &8308745017819544980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,31 +290,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1499618267819610794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: TODO add rules switching menu here
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 1
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1936166095186626675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1435,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 600}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7504060646645446776
 GameObject:
@@ -1765,6 +1757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8129675184467854282}
   - component: {fileID: 8129675184467854283}
+  - component: {fileID: 6391348122780193526}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1838,3 +1831,40 @@ MonoBehaviour:
   menusFadeThreshold: 0.9
   killCountText: {fileID: 37795851262249845}
   currentStage: 0
+  OnNewWave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6391348122780193526}
+        m_TargetAssemblyTypeName: RulesManager, Assembly-CSharp
+        m_MethodName: RandomizeRuleSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6391348122780193526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129675184467854285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9ec185782c00f42bda4e87152fab00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rules: []
+  maxRules: 5
+  explosion: {fileID: 3792052028174771991, guid: b54d1fe89a3ecec44843e8363d920787, type: 3}
+  heal: {fileID: 3792052028174771991, guid: db48d59c46009524fad98aecaefefacd, type: 3}
+  lightningChain: {fileID: 0}
+  shield: {fileID: 3792052028174771991, guid: ebe513020c86aef4aaee1d97caa0332e, type: 3}
+  enemyBulletPack: {fileID: 1726209172373094331, guid: caae498d2da88aa4188cd3f9ec084733, type: 3}
+  playerBulletPack: {fileID: 1726209172373094331, guid: 2eab499786b51a4408712ade641b549c, type: 3}
+  layout: {fileID: 8308745017819544980}
+  ruleUI: {fileID: 6482715042890697254, guid: 072d68027392a344380fce039346dba1, type: 3}

@@ -6,6 +6,8 @@ using UnityEngine.Events;
 #nullable enable
 
 public class Health : MonoBehaviour {
+
+	public RulesManager? rules;
 	public float maxValue = 100;
 	[SerializeField] private float _current = 100;
 	public float regen = 0f;
@@ -15,10 +17,13 @@ public class Health : MonoBehaviour {
 
 	public float current {get => _current; set {
 		if (value < _current) lastLoss = Time.time;
-		_current = value;
+		_current = Mathf.Clamp(value, -1, maxValue);
 		OnValueChange?.Invoke(current);
 		OnFractionChange?.Invoke(current / maxValue);
-		if (current <= 0f) OnDepleted?.Invoke();
+		if (current <= 0f) {
+			OnDepleted?.Invoke();
+			rules?.NotifyRule(RulesManager.Trigger.Kill, transform.position);
+		}
 	}}
 
 	public UnityEvent<float>	OnValueChange = new UnityEvent<float>();

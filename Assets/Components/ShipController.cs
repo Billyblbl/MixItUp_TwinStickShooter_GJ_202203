@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour {
 
+	public RulesManager? rules;
 	public Rigidbody2D?	rb;
 	public Transform?	target;
 	public ProjectileSource2D?	source;
@@ -20,6 +21,7 @@ public class ShipController : MonoBehaviour {
 	protected void Fire() {
 		lastShot = Time.time;
 		source?.FireProjectile();
+		rules?.NotifyRule(RulesManager.Trigger.Shoot, transform.position);
 	}
 	protected void UpdateMovement(float speedMul = 1f) => rb!.velocity = Vector2.ClampMagnitude(movement, 1f) * speed * speedMul;
 
@@ -31,4 +33,7 @@ public class ShipController : MonoBehaviour {
 
 	}
 
+	private void OnCollisionEnter2D(Collision2D other) {
+		rules?.NotifyRule(RulesManager.Trigger.Collision, transform.position);
+	}
 }
