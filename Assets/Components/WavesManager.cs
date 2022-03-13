@@ -14,6 +14,8 @@ public class WavesManager : MonoBehaviour {
 		GameOver = 2
 	}
 
+	const int EnemiesPerTiers = 5;
+
 	public SpawnZone? spawnZone;
 	public Text?	waveLabel;
 	public Text?	enemiesLabel;
@@ -72,7 +74,9 @@ public class WavesManager : MonoBehaviour {
 	public void GameOver() {
 		currentStage = Stage.GameOver;
 		paused = true;
-		killCountText!.text = string.Format(killCountFormat, 5*currentWave - enemyCount);
+		var sum = 0f;
+		for (int i = 0; i < currentWave; i++) sum += EnemiesPerTiers*i;
+		killCountText!.text = string.Format(killCountFormat, sum - enemyCount);
 	}
 
 	void LaunchWave() {
@@ -105,7 +109,7 @@ public class WavesManager : MonoBehaviour {
 		menus[(int)currentStage]?.gameObject.SetActive(fadeValue > menusFadeThreshold);
 	}
 
-	int SpawnCount(int level) => level * 5;
+	int SpawnCount(int level) => level * EnemiesPerTiers;
 
 	public void ReloadScene() {
 		Debug.Log("Retry");
