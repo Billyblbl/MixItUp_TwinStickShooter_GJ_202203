@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5167578695240146998}
+  - component: {fileID: 3223262884630158801}
   m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
@@ -35,6 +36,25 @@ Transform:
   m_Father: {fileID: 4819526679084156001}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3223262884630158801
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101176714176036653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6348ee1767c6a6499f74066b0ee4a8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1277887036521156885
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +610,8 @@ GameObject:
   - component: {fileID: 4819526679084156007}
   - component: {fileID: 4819526679084156006}
   - component: {fileID: 4819526679084156005}
+  - component: {fileID: 8395757291055952515}
+  - component: {fileID: 5106403355188376566}
   m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
@@ -692,6 +714,71 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17
+--- !u!114 &8395757291055952515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819526679084156002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e146d35599c204c8ccf00d400b4051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 5106403355188376566}
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5106403355188376566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819526679084156002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7a852731d5be4593b950bad7dd52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 100
+  _current: 100
+  regen: 10
+  regenDelay: 1
+  OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFractionChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDepleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3223262884630158801}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Death
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4819526679084156000}
+        m_TargetAssemblyTypeName: TSSControler, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5131858336381556764
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 2e9ea62e22bdd6e4cbc347b5b7122eb7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6092023205816178374
+    second: Cover_Red_png_processed_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,9 +44,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
@@ -89,7 +92,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Cover_Red_png_processed_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 18
+        width: 37
+        height: 25
+      alignment: 9
+      pivot: {x: 0.50710946, y: 0.48947808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39e3e5db29c47ba0800000000000000
+      internalID: -6092023205816178374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

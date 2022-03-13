@@ -33,4 +33,13 @@ public class TSSControler : ShipController {
 		var dashFactor = (dashStart + dashTime > Time.time) ? dashSpeed : 1f;
 		UpdateMovement(dashFactor);
 	}
+
+	public void OnDeath() {
+		StartCoroutine(Die());
+	}
+
+	IEnumerator	Die() {
+		yield return new WaitForSeconds(.6f);
+		gameObject.SetActive(false);
+	}
 }
