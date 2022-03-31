@@ -10,23 +10,33 @@ public class RulesManager : MonoBehaviour {
 
 	public enum Trigger {
 		Shoot,
+		Damage,
 		Kill,
 		Dash,
-		Collision
+		Collision,
+		PlayerMovement
 	}
 
-	public enum Reaction {
-		Explosion,
-		// LightningChain,
-		HealZone,
-		Shield,
-		SpawnPlayerBullets,
-		SpawnEnemyBullets,
-	}
+	// public enum Reaction {
+	// 	Explosion,
+	// 	LightningChain,
+	// 	HealZone,
+	// 	Shield,
+	// 	SpawnPlayerBullets,
+	// 	SpawnEnemyBullets,
+	// 	EMP
+	// }
+
+	// [System.Serializable] public struct ReactionObj {
+	// 	public string name;
+	// 	public GameObject effect;
+
+	// }
 
 	[System.Serializable] public class Rule {
 		public Trigger trigger;
-		public Reaction reaction;
+		public GameObject? reaction;
+		// public ReactionObj reactionObj;
 	}
 
 	public List<Rule>	rules = new List<Rule>();
@@ -42,28 +52,20 @@ public class RulesManager : MonoBehaviour {
 	public void NotifyRule(Trigger trigger, Vector2 position) {
 		foreach (var rule in rules.Where((rule) => rule.trigger == trigger)) {
 			Vector3 spawnPoint = position;
-			Instantiate(spawns[rule.reaction], spawnPoint, Quaternion.identity);
+			Instantiate(rule.reaction, spawnPoint, Quaternion.identity);
 		}
 	}
-
-	public GameObject? explosion;
-	public GameObject? heal;
-	public GameObject? lightningChain;
-	public GameObject? shield;
-	public GameObject? enemyBulletPack;
-	public GameObject? playerBulletPack;
 
 	public VerticalLayoutGroup? layout;
 	public RuleUIElement?	ruleUI;
 
-	Dictionary<Reaction, GameObject>	spawns = new Dictionary<Reaction, GameObject>();
-
 	static Trigger[] TriggerValues = (Trigger[])System.Enum.GetValues(typeof(Trigger));
-	static Reaction[] ReactionValues = (Reaction[])System.Enum.GetValues(typeof(Reaction));
+	public List<GameObject> Effects = new List<GameObject>();
 
 	public void RandomizeRule(int index) {
+		Debug.LogFormat("{0} rules, randomizing {1}", rules.Count, index);
 		rules[index].trigger = TriggerValues[Random.Range(0, TriggerValues.Length)];
-		rules[index].reaction = ReactionValues[Random.Range(0, ReactionValues.Length)];
+		rules[index].reaction = Effects[Random.Range(0, Effects.Count)];
 		UpdateUI();
 	}
 
@@ -74,25 +76,17 @@ public class RulesManager : MonoBehaviour {
 
 		for (int i = 0; i < rules.Count; i++) {
 			var ui = Instantiate(ruleUI, layout!.transform);
-			ui?.Fill(rules[i]);
-			ui?.randomizeButton?.onClick.AddListener(() => RandomizeRule(i));
+			if (ui != null) {
+				ui.Fill(rules[i]);
+				ui.ruleIndex = i;
+				ui.randomizeButton?.onClick.AddListener(() => RandomizeRule(ui.ruleIndex));
+			}
 		}
 	}
 
 	public void NewRandomRule() {
 		rules.Add(new Rule());
 		RandomizeRule(rules.Count - 1);
-	}
-
-	private void Start() {
-		spawns = new Dictionary<Reaction, GameObject>{
-			{Reaction.Explosion, explosion!},
-			{Reaction.HealZone, heal!},
-			// {Reaction.LightningChain, lightningChain!},
-			{Reaction.Shield, shield!},
-			{Reaction.SpawnEnemyBullets, enemyBulletPack!},
-			{Reaction.SpawnPlayerBullets, playerBulletPack!}
-		};
 	}
 
 }

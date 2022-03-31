@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4085544959777604321}
   - component: {fileID: 5916976704029226949}
   m_Layer: 0
-  m_Name: BulletPackEnemy
+  m_Name: PlayerBulletExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f156e5a70739847ad915fdf1df18a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5870568446582507774, guid: 29bbe3c6a0a6cd844bff0ac714eb5793, type: 3}
-  velocity: {x: 0, y: 5}
+  projectile: {fileID: 5870568446582507774, guid: 9823992fa9cb55948bf9416ea23411ec, type: 3}
+  velocity: {x: 0, y: 10}
   recoil: {x: 0, y: 0}
   inertia: {fileID: 0}
   OnFire:
@@ -79,4 +79,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 7306787586923118508}
-  shots: 5
+  shots: 10

@@ -18,13 +18,18 @@ public class DamageReceptor : MonoBehaviour {
 		}
 	}
 
+	public bool triggerOnSolidCollision = false;
+	public bool triggerOnZoneCollision = true;
+
 	private void OnTriggerEnter2D(Collider2D other) {
+		if (!triggerOnZoneCollision) return;
 		var damages = other.GetComponents<Damage>();
 		// Debug.LogFormat("Trigger Damage from {0}", other.gameObject.name);
 		foreach (var damage in damages) Hit(damage);
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
+		if (!triggerOnSolidCollision) return;
 		var damages = other.collider.GetComponents<Damage>();
 		// Debug.LogFormat("Collision Damage from {0}", other.gameObject.name);
 		foreach (var damage in damages) Hit(damage);

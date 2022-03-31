@@ -14,6 +14,6 @@ public class RuleUIElement : MonoBehaviour {
 
 	public void Fill(RulesManager.Rule rule) {
 		triggerLabel!.text = rule.trigger.ToString();
-		reactionLabel!.text = rule.reaction.ToString();
+		reactionLabel!.text = rule.reaction?.name ?? "None";
 	}
 }

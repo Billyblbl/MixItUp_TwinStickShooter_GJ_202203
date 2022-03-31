@@ -103,6 +103,8 @@ MonoBehaviour:
   OnImpact:
     m_PersistentCalls:
       m_Calls: []
+  triggerOnSolidCollision: 1
+  triggerOnZoneCollision: 1
 --- !u!1 &5870568447296816728
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,8 +22,10 @@ public class Health : MonoBehaviour {
 		OnFractionChange?.Invoke(current / maxValue);
 		if (current <= 0f) {
 			OnDepleted?.Invoke();
+			OnDepleted?.RemoveAllListeners();
 			rules?.NotifyRule(RulesManager.Trigger.Kill, transform.position);
 		}
+		rules?.NotifyRule(RulesManager.Trigger.Damage, transform.position);
 	}}
 
 	public UnityEvent<float>	OnValueChange = new UnityEvent<float>();

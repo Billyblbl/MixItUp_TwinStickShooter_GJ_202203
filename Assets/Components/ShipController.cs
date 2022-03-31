@@ -14,6 +14,9 @@ public class ShipController : MonoBehaviour {
 	public float aimSpring = 10f;
 	[Tooltip("RPM")] public float fireRate = 100f;
 
+	public float collisionTriggerCooldown = 0.2f;
+	public float lastCollision;
+
 	float lastShot = 0f;
 	protected Vector2 movement;
 
@@ -34,6 +37,8 @@ public class ShipController : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
+		if (lastCollision + collisionTriggerCooldown > Time.time) return;
+		lastCollision = Time.time;
 		rules?.NotifyRule(RulesManager.Trigger.Collision, transform.position);
 	}
 }

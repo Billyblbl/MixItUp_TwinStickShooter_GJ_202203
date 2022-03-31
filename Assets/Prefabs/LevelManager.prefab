@@ -1860,11 +1860,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rules: []
   maxRules: 5
-  explosion: {fileID: 3792052028174771991, guid: b54d1fe89a3ecec44843e8363d920787, type: 3}
-  heal: {fileID: 3792052028174771991, guid: db48d59c46009524fad98aecaefefacd, type: 3}
-  lightningChain: {fileID: 0}
-  shield: {fileID: 3792052028174771991, guid: ebe513020c86aef4aaee1d97caa0332e, type: 3}
-  enemyBulletPack: {fileID: 1726209172373094331, guid: caae498d2da88aa4188cd3f9ec084733, type: 3}
-  playerBulletPack: {fileID: 1726209172373094331, guid: 2eab499786b51a4408712ade641b549c, type: 3}
   layout: {fileID: 8308745017819544980}
   ruleUI: {fileID: 6482715042890697254, guid: 072d68027392a344380fce039346dba1, type: 3}
+  Effects:
+  - {fileID: 1726209172373094331, guid: caae498d2da88aa4188cd3f9ec084733, type: 3}
+  - {fileID: 3792052028174771991, guid: b54d1fe89a3ecec44843e8363d920787, type: 3}
+  - {fileID: 3792052028174771991, guid: db48d59c46009524fad98aecaefefacd, type: 3}
+  - {fileID: 1726209172373094331, guid: 2eab499786b51a4408712ade641b549c, type: 3}
+  - {fileID: 3792052028174771991, guid: ebe513020c86aef4aaee1d97caa0332e, type: 3}

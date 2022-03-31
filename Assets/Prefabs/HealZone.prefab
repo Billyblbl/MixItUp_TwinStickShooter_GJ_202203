@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5056922483893673795}
   - component: {fileID: 2812829037562243267}
   - component: {fileID: 8039659842089137465}
-  m_Layer: 0
-  m_Name: heal
+  m_Layer: 6
+  m_Name: HealZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.12695312
+  m_Radius: 0.1
 --- !u!114 &2812829037562243267
 MonoBehaviour:
   m_ObjectHideFlags: 0

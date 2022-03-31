@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 4819526679084156007}
   - component: {fileID: 4819526679084156006}
   - component: {fileID: 4819526679084156005}
+  - component: {fileID: 5866846487494804275}
   - component: {fileID: 8395757291055952515}
   - component: {fileID: 5106403355188376566}
   m_Layer: 6
@@ -646,12 +647,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa70234a652509f4d9353e8b4226e3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rules: {fileID: 0}
   rb: {fileID: 4819526679084156006}
   target: {fileID: 0}
   source: {fileID: 4819526679084156007}
   speed: 5
   aimSpring: 10
   fireRate: 500
+  collisionTriggerCooldown: 0.2
+  lastCollision: 0
   cursor: {fileID: 0}
   dashIncicatorOverlay: {fileID: 0}
   dashSpeed: 10
@@ -713,6 +717,22 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
+  m_Radius: 0.1
+--- !u!58 &5866846487494804275
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819526679084156002}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
   m_Radius: 0.17
 --- !u!114 &8395757291055952515
 MonoBehaviour:
@@ -730,6 +750,8 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls: []
+  triggerOnSolidCollision: 0
+  triggerOnZoneCollision: 1
 --- !u!114 &5106403355188376566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,6 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e7a852731d5be4593b950bad7dd52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rules: {fileID: 0}
   maxValue: 100
   _current: 100
   regen: 10
@@ -771,6 +794,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: TSSControler, Assembly-CSharp
         m_MethodName: OnDeath
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4819526679084156005}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5866846487494804275}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
