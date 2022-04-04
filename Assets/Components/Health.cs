@@ -7,7 +7,6 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour {
 
-	public RulesManager? rules;
 	public float maxValue = 100;
 	[SerializeField] private float _current = 100;
 	public float regen = 0f;
@@ -23,9 +22,7 @@ public class Health : MonoBehaviour {
 		if (current <= 0f) {
 			OnDepleted?.Invoke();
 			OnDepleted?.RemoveAllListeners();
-			rules?.NotifyRule(RulesManager.Trigger.Kill, transform.position);
 		}
-		rules?.NotifyRule(RulesManager.Trigger.Damage, transform.position);
 	}}
 
 	public UnityEvent<float>	OnValueChange = new UnityEvent<float>();

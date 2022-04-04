@@ -23,7 +23,6 @@ public class TSSControler : ShipController {
 
 		if (Input.GetMouseButton(0) && CanFire()) Fire();
 		if (Input.GetKeyDown(KeyCode.LeftShift) && dashStart + dashCooldown < Time.time) {
-			rules?.NotifyRule(RulesManager.Trigger.Dash, transform.position);
 			dashStart = Time.time;
 		}
 
